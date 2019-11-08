@@ -1,0 +1,25 @@
+<div class="container" *ngIf="!isLoggedIn">
+  <div class="row">
+    <h1 class="mb-3 mt-5 col">Log in to create new items</h1>
+  </div>
+</div>
+<div *ngIf="isLoggedIn">
+  <input type="text" [(ngModel)]="newToDoItemText">
+  <button (click)="createNewToDoItem()">ADD</button>
+</div>
+<table class="table">
+  <thead>
+    <th>ID</th>
+    <th>Text</th>
+    <th>User</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let todoItem of toDoItems$ | async">
+      <td>{{todoItem.id}}</td>
+      <td><a [routerLink]="[todoItem.id]">{{todoItem.text}}</a></td>
+      <td>{{todoItem.name}} ({{todoItem.email}})</td>
+      <td><button (click)="removeToDoItem(todoItem)">Remove</button></td>
+    </tr>
+  </tbody>
+</table>

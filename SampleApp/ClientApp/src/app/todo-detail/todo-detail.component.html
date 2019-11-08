@@ -1,0 +1,22 @@
+<h1 *ngIf="!toDoItem">
+  unknown...
+</h1>
+
+<table class="table" *ngIf="toDoItem">
+  <tr>
+    <td>ID</td>
+    <td>{{toDoItem.id}}</td>
+  </tr>
+  <tr>
+    <td>Text</td>
+    <td>{{toDoItem.text}}</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>{{toDoItem.name}}</td>
+  </tr>
+  <tr>
+    <td>E-Mail</td>
+    <td>{{toDoItem.email}}</td>
+  </tr>
+</table>
